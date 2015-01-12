@@ -1,1 +1,7 @@
-/* CSS declarations go here */
+html {
+    background-image: url('/salon_background.jpg')
+}
+
+body {
+    background: none;
+}
