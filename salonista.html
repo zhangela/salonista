@@ -7,7 +7,7 @@
 </body>
 
 <template name="navbar">
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-{{color}}">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -23,7 +23,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">HOME</a></li>
+            <li><a href="/">HOME</a></li>
             <li><a href="#">ABOUT US</a></li>
             <li><a href="#">SERVICE MENU</a></li>
             <li><a href="#">DIRECTIONS/PARKING</a></li>
@@ -43,7 +43,7 @@
 
 <template name="layout">
     <div class='page'>
-        {{> navbar }}
+        {{> navbar color="default"}}
         {{> yield }}
     </div>
 
@@ -51,7 +51,7 @@
 
 <template name="homePageLayout">
     <div class='page home-page'>
-        {{> navbar }}
+        {{> navbar color="inverse"}}
         {{> yield }}
     </div>
 </template>
