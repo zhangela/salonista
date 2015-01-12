@@ -1,0 +1,54 @@
+<template name="manage">
+    {{> serviceCategories}}
+
+    {{> serviceLevels}}
+</template>
+
+<template name="serviceCategories">
+    <h2>Services</h2>
+
+    <form class="new-category">
+        Add new service category: <input type="text" name="name" />
+    </form>
+
+    {{#each serviceCategories}}
+        <div class="service-category">
+            {{> manageServiceCategory}}
+        </div>
+    {{/each}}
+</template>
+
+<template name="manageServiceCategory">
+    <h3>Category: {{name}}</h3>
+
+    <ul>
+        {{#each servicesInCategory _id}}
+            <li>{{stringify this}}</li>
+        {{/each}}
+    </ul>
+
+    <form class="new-service">
+        Add new service: <br />
+        <input type="text" name="name" placeholder="name"/> <br />
+        <input type="number" name="duration" placeholder="duration" step="any" /> <br />
+        {{#each levels}}
+            Price for {{name}}: <input type="number" name="priceOfLevel.{{_id}}" step=0.01 /> <br />
+        {{/each}}
+        <input type="hidden" name="category" value="{{_id}}" />
+        <button>Submit</button>
+    </form>
+</template>
+
+<template name="serviceLevels">
+    <h2>Levels</h2>
+
+    <form class="new-level">
+        Add new service level: <input type="text" name="name" />
+    </form>
+
+    <ul>
+        {{#each serviceLevels}}
+            <li>{{name}}</li>
+        {{/each}}
+    </ul>
+</template>

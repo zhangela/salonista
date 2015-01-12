@@ -1,3 +1,4 @@
+
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault("counter", 0);
@@ -7,10 +8,16 @@ if (Meteor.isClient) {
       return Router.current().route.getName() === undefined;
     }
   });
+
+  Template.appointments.helpers({
+    serviceCategories: function () {
+      return ['style', 'color', 'texture', 'treatments', 'skin', 'eyes', 'makeup', 'waxing']
+    }
+  });
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+    // nope
   });
 }
