@@ -47,12 +47,17 @@
                     <h4>Category</h4>
                     <div class="list-group">
                         {{#each serviceCategories}}
-                          <a href="#" class="list-group-item">{{this}}</a>
+                          <a href="#" class="list-group-item service-category">{{name}}</a>
                         {{/each}}
                     </div>
                 </div>
                 <div class='col-md-8'>
-
+                    <h4>Services in Category</h4>
+                    <ul>
+                        {{#each servicesInCategory selectedCategory}}
+                            <li>{{name}}</li>
+                        {{/each}}
+                    </ul>
                 </div>
             </div>
         </div>

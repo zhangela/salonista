@@ -9,11 +9,25 @@ if (Meteor.isClient) {
     }
   });
 
+  var selectedCategory = new ReactiveVar();
   Template.appointments.helpers({
     serviceCategories: function () {
-      return ['style', 'color', 'texture', 'treatments', 'skin', 'eyes', 'makeup', 'waxing']
+      return ServiceCategories.find();
+    },
+    servicesInCategory: function (categoryId) {
+      return Services.find({category: categoryId});
+    },
+    selectedCategory: function () {
+      return selectedCategory.get();
     }
   });
+
+  Template.appointments.events({
+    "click .service-category": function () {
+      console.log(this);
+      selectedCategory.set(this._id);
+    }
+  })
 }
 
 if (Meteor.isServer) {
