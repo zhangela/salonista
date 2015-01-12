@@ -1,5 +1,11 @@
-html {
+.home-page {
     background-image: url('/salon_background.jpg')
+}
+
+.page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 body {
